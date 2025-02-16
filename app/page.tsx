@@ -2,7 +2,7 @@
 
 
 import { FC } from 'react';
-import RichEditor from './components/rich-editor';
+import RichEditor from './components/rich-editor/RichEditor';
 
 const Home: FC = () => {
   return (

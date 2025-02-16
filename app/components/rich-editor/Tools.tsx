@@ -1,7 +1,6 @@
 import { FC, JSX } from "react";
 import { Editor } from "@tiptap/react"; 
 import { 
-  MdKeyboardArrowDown, 
   MdOutlineFormatAlignCenter, 
   MdOutlineFormatAlignLeft, 
   MdOutlineFormatAlignRight, 
@@ -25,7 +24,6 @@ interface Props {
 }
 
 const tools: Tool[] = [
-  { task: "paragraph-dropdown", icon: <MdKeyboardArrowDown fontSize={25}/>  },
   { task: "link", icon: <HiLink fontSize={25}/> },
   { task: "image", icon: <MdPhoto fontSize={25}/> },
   { task: "align-left", icon: <MdOutlineFormatAlignLeft fontSize={25}/>  },
@@ -39,6 +37,8 @@ const tools: Tool[] = [
 ];
 
 const Tools: FC<Props> = ({ editor }) => {
+  
+  const headingLevels = [1, 2, 3, 4, 5, 6];
   if (!editor) return null;
 
   const toolsWithActions = [
@@ -73,6 +73,21 @@ const Tools: FC<Props> = ({ editor }) => {
 
   return (
     <div className="flex gap-2 mt-16 p-2 border border-gray-300 rounded justify-around">
+      <select
+        className="p-2 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-[#E7F1E9]transition duration-200"
+        onChange={(e) => {
+          const level = parseInt(e.target.value);
+          editor.chain().focus().toggleHeading({ level}).run();
+        }}
+      >
+        <option >Paragraph</option>
+        {headingLevels.map((level) => (
+          <option key={level} value={level}>
+            Heading {level}
+          </option>
+        ))}
+      </select>
+
       {tools.map(({ icon, task }, index) => (
         <ToolButton key={task + index} onClick={() => handleClick(task)}>
           {icon}

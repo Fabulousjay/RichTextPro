@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Open_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const openSans = Open_Sans({ 
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap'
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -23,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${openSans.className}  bg-[#E7F1E9] antialiased`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  bg-[#FAFAFA] antialiased`}
       >
         {children}
       </body>
     </html>
   );
 }
+
