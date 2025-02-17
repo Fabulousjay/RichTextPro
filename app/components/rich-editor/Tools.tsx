@@ -74,7 +74,7 @@ const Tools: FC<Props> = ({ editor }) => {
   return (
     <div className="flex gap-2 mt-16 p-2 border border-gray-300 rounded justify-around">
       <select
-        className="p-2 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-[#E7F1E9]transition duration-200"
+        className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E7F1E9]transition duration-200"
         onChange={(e) => {
           const level = parseInt(e.target.value);
           editor.chain().focus().toggleHeading({ level}).run();

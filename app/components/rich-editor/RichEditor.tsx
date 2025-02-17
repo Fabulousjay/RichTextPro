@@ -9,7 +9,7 @@ import Tools from './Tools';
 import TextAlign from "@tiptap/extension-text-align";
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
-import EmbedCard from './EmbedCard';
+import EmbedCard from './EmbedImage';
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from '../Modal';
 
@@ -41,7 +41,7 @@ const RichEditor: FC = () => {
   return (
     <div className="relative" >
 
-      <Modal isOpen={false} onClose={function (): void {
+      <Modal isOpen={true} onClose={function (): void {
         throw new Error('Function not implemented.');
       }} />
       <div className="sticky top-0 bg-[#FAFAFA] z-10 shadow p-2">
