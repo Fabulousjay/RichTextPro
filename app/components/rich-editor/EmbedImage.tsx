@@ -1,36 +1,16 @@
-import { MdImage, MdVideoCameraBack } from "react-icons/md";
-import { TbSocial } from "react-icons/tb";
+import React from 'react';
 
-interface EmbedOption {
-    title: string;
-    description: string;
-    icon:React.ReactNode; 
-  }
-  
-  const EmbedImage: React.FC = () => {
-    const embedOptions: EmbedOption[] = [
-      { title: 'Picture', description: 'Jpeg, png',icon: <MdImage  size={20}/> },
-      { title: 'Video', description: 'JW player, Youtube, Vimeo', icon: <MdVideoCameraBack size={20}/> },
-      { title: 'Social', description: 'Instagram, Twitter, TikTok, Snapchat, Facebook', icon: <TbSocial size={20}/> },
-    ];
-  
-    return (
-      <div className="py-4 rounded w-[277px] bg-white">
-        <ul>
-          <h1>EMBED</h1>
-          {embedOptions.map((option, index) => (
-          <li key={index} className="py-2 flex items-center hover:bg-[#E7F1E9]">
-          {option.icon}
-          <div className="ml-2">
-            <h2 className="font-bold">{option.title}</h2>
-            <p className="text-sm">{option.description}</p>
-          </div>
-        </li>
-          ))}
-        </ul>
+const EmbedImage: React.FC = () => {
+  return (
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold ml-6 mb-4">Upload Image</label>
+
+      <div className='border border-dashed border-[#6CAA7D] w-[611px] h-[141px] flex m-auto rounded bg-[#FAFAFA]'>
+        <button className='border  h-[30px] w-[146px] border-[#6CAA7D] m-auto rounded'> Import Image</button>
       </div>
-    );
-  };
-  
-  export default EmbedImage;
-  
+    </div>
+  );
+};
+
+export default EmbedImage;
+

@@ -4,26 +4,20 @@ import FormRowSelect from '../FormRowSelect';
 import { FaToggleOn } from "react-icons/fa";
 
 interface EmbedOption {
-    onCancel: () => void
+    onCancel?: () => void
 }
 
 const EmbedSocial: React.FC<EmbedOption> = () => {
     const [socialProvider, setSocialProvider] = useState('Facebook');
     const [url, setUrl] = useState('');
     const [embedCode, setEmbedCode] = useState('<iframe width=“560” height=“315” src=“https://www.youtube.com/embed/9Q8di14SuE4” title=“YouTube…');
-    const [disableCaption, setDisableCaption] = useState(false);
+    const [disableCaption] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log({ socialProvider, url, embedCode, disableCaption });
     };
 
-    const handleCancel = () => {
-        setSocialProvider('Facebook');
-        setUrl('');
-        setEmbedCode('<iframe ...>');
-        setDisableCaption(false);
-    };
 
     return (
         <form onSubmit={handleSubmit} className="w-[659px] bg-white p-6 rounded">

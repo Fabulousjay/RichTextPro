@@ -15,9 +15,9 @@ export const EmbedButton: React.FC<ButtonProps> = ({ text }) => {
 };
 
 
-export const CancelButton: React.FC<ButtonProps> = ({ text }) => {
+export const CancelButton: React.FC<ButtonProps> = ({ text ,onClick}) => {
   return (
-    <button className='p-2 text-[#343E37] border border-[#CEE3D4] rounded'>
+    <button className='p-2 text-[#343E37] border border-[#CEE3D4] rounded' onClick={onClick}>
       {text}
     </button>
   );

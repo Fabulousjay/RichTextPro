@@ -9,9 +9,9 @@ import Tools from './Tools';
 import TextAlign from "@tiptap/extension-text-align";
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
-import EmbedCard from './EmbedImage';
+import EmbedCard from './EmbedCard';
 import { AiOutlinePlus } from "react-icons/ai";
-import Modal from '../Modal';
+import Placeholder from "@tiptap/extension-placeholder"
 
 const RichEditor: FC = () => {
 
@@ -28,29 +28,29 @@ const RichEditor: FC = () => {
       Link.configure({
         openOnClick: true,
       }),
+      Placeholder.configure({ placeholder: "Type Something..." }),
       Image,],
     content: "",
     editorProps: {
       attributes: {
         class:
-          'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl outline-none',
+          'prose p-4 prose-sm sm:prose-base lg:prose-base xl:prose-md outline-none max-w-none w-full text-black',
       },
     },
   });
 
   return (
-    <div className="relative" >
 
-      <Modal isOpen={true} onClose={function (): void {
-        throw new Error('Function not implemented.');
-      }} />
-      <div className="sticky top-0 bg-[#FAFAFA] z-10 shadow p-2">
+    <div className="h-screen bg-[#FAFAFA] z-10 shadow p-2 h-screen relative">
+      <div className='sticky top-0 z-50'>
 
         <Tools editor={editor} />
+      </div>
 
-        <EditorContent editor={editor} />
+      <EditorContent editor={editor} className='h-full relative'/>
 
-        <button onClick={toggleCard} className='mt-4 w-10 h-10 rounded-full bg-[#E7F1E9] flex items-center justify-center'>
+        <div className='absolute top-[40%] px-4'>
+        <button onClick={toggleCard} className='w-10 h-10 rounded-full bg-[#E7F1E9] flex items-center justify-center'>
           <AiOutlinePlus />
         </button>
 
@@ -59,8 +59,13 @@ const RichEditor: FC = () => {
             <EmbedCard />
           </div>
         )}
-      </div>
+        </div>
+       
+    
+
+
     </div>
+
   );
 }
 
