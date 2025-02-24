@@ -42,7 +42,7 @@ interface EmbedOption {
     return (
       <div className="py-4 rounded w-[277px] bg-white">
         <ul>
-          <h1>EMBED</h1>
+          <h1 className="px-4">EMBED</h1>
           {embedOptions.map((option, index) => (
           <li key={index} className="py-2 px-4 mt-2 flex items-center hover:bg-[#E7F1E9] cursor-pointer" onClick={()=>handleOpenModal(option.type)}>
           {option.icon}
